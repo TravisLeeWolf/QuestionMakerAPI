@@ -4,10 +4,6 @@
 - **Bootstrap 5**
 - **SQLite**
 
-1. [Puropse](purpose)
-2. [Intended functionality](functionality)
-3. [Check list](check-list)
-
 ### Purpose {#purpose}
  To allow teachers teaching English as a second language to collaborate and make a set of questions for teaching Elementary and Junior High School students[^1] with the use of the [Wipeout English game](https://games.tetsuo-travis.com).
 
