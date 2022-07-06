@@ -22,9 +22,6 @@
                     <a class="nav-link" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Viewer</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="#">Maker</a>
                   </li>
                   <li class="nav-item">
@@ -32,7 +29,8 @@
                   </li>
                 </ul>
                 <div class="d-flex">
-                  <button class="btn btn-outline-success">Sign In</button>
+                  <button class="btn btn-success">Sign In</button>
+                  <button class="btn btn-outline-success">Sign Up</button>
                 </div>
               </div>
             </div>
@@ -40,71 +38,68 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container-fluid">
-        <div class="row">
-          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
-                    Add tag search here
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    ES 1st
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    ES 2nd
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    ES 3rd
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    ES 4th
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    ES 5th
-                  </a>
-                </li>
-                <li class="nav-item">
+    <main>
+      <div class="container-fluid">
+          <div class="row">
+            <nav id="sidebarMenu" class="col-md-4 col-lg-3 d-md-block bg-light sidebar collapse">
+              <div class="position-sticky pt-3">
+                <div class="nav flex-column p-1">
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit">Search by Tag</button>
+                  </form>
+                </div>
+                <ul class="nav flex-column">
+                  {% for i in grade %}
+                  <li class="nav-item">
                     <a class="nav-link" href="#">
-                      ES 6th
+                      {{ i }}
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      JHS 1st
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      JHS 2nd
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      JHS 3rd
-                    </a>
-                </li>
-            </div>
-          </nav>
-      
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <!-- Add list of questions here -->
-            </div>
-          </main>
-        </div>
-    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </nav>
+        
+            <main class="col-md-8 ms-sm-auto col-lg-9 px-md-4">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <ul class="list-group">
+                  {% for item in data %}
+                      <li class="list-group-item">
+                          <div class="container">
+                              <div class="row">
+                                <div class="col-3"><img src= {{item.pic_url}} width="200px"></div>
+              
+                                <div class="col-5 offset-md-3">
+                                      <div class="row">{{item.text}}</div>
+                                      <div class="row">
+                                          {% for tag in item.tags -%}
+                                              <a href=# >#{{tag}}</a>
+                                          {%- endfor %}
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </main>
+          </div>
+      </div>
+    </main>
+    <!-- End of main content -->
+
+    
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">
+          <p>See the code <a href="https://github.com/TravisLeeWolf/QuestionMakerAPI">here</a>.</p>
+          <p><a href="#">Back to top</a></p>
+        </span>
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
+  
 </html>
