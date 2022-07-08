@@ -1,0 +1,18 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<main>
+    <div class="container">
+        <div class="row align-items-center">
+            <div id="mini-viewer" class="col-md-4 text-center">
+                <img id="preview-img" class="rounded" width="250px" height="auto" src="https://godotengine.org/themes/godotengine/assets/press/logo_vertical_color_light.png">
+            </div>
+            <div id="maker-form" class="col-md-8">
+                <h4>Create Question</h4>
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include "footer.html" %}
